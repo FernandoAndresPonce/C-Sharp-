@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="primerPortfolio.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+   <%--h ttps://cdnjs.com/libraries/font-awesome --%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Portfolio</title>
+
+    <link href="Contents/bootstraps.css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Contents/bootstraps.js/bootstrap.min.js"></script>
+
+    <link href="Contents/estilos.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<%----------------------------------------------%>
+
+<body>
+    <form id="form1" runat="server">
+        <%--Menu encabezado--%>
+        <div class="contenedor-header">
+            <header>
+                <div class="logo">
+                    <a href="#">Fernando</a>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobremi">Sobre mi</a></li>
+                        <li><a href="#habilidades">Skill</a></li>
+                        <li><a href="#curriculum">Curriculum</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <%--Lo que hemos descargado de la pagina fontawesome--%>
+                <div class="nav-responsive">
+                    <i class="fa-solid fa-bars"></i>
+                </div>  
+            </header>
+            <%--Menu encabezado--%>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

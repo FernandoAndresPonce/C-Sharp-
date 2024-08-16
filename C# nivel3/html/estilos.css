@@ -1,0 +1,22 @@
+
+
+p{
+    color: palevioletred;
+    
+}
+
+#parrafo1 
+{
+    color: chocolate;
+    font-weight: bold;
+}
+.colorPrincipal
+{
+    color: lawngreen;
+}
+#cuadrado
+{
+    height: 200px;
+    width: 200px;
+    background-color: aquamarine;
+}
