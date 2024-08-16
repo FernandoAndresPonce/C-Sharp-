@@ -40,17 +40,36 @@
                         <asp:TextBox runat="server" ID="txtUrlImagen" CssClass="form-control" OnTextChanged="txtUrlImagen_TextChanged" AutoPostBack="true" />
                     </li>
 
-                    <li class="formularioPokemonButton">
+                    <li class="formularioPokemonButtonImangen">
                         <asp:Image ImageUrl="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" ID="imgUrlImagen" CssClass="imagenFormPokemon" runat="server" />
                     </li>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <li class="formularioPokemonButton">
-                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary button " OnClick="btnAceptar_Click" runat="server" />
+                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
                 <asp:Button Text="Cancelar" ID="btnCancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" runat="server" />
-            </li>
+                <%--  [6.Eliminar Pokemon]--%>
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <br />
+                        <%--  [1.Eliminar Pokemon]--%>
+                        <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger " OnClick="btnEliminar_Click" runat="server" />
+                        </li>
+                        <%--  [2.Eliminar Pokemon]--%>
+                        <%--  [5.Eliminar Pokemon]--%>
+
+                        <%if (ConfirmaEliminacion)
+                            { %>
+                        <li>
+                            <asp:CheckBox Text="Confirmar Eliminacion" ID="ckConfirmaEliminacion" runat="server" />
+                            <asp:Button Text="Confirmar" ID="btnConfirmar" CssClass="btn btn-outline-danger" OnClick ="btnConfirmar_Click" runat="server" />
+                        </li>
+                        <%}%>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
         </ul>
     </div>
+
 
 
 

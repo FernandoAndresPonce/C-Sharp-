@@ -11,16 +11,18 @@ namespace WebApp
 {
     public partial class FormPokemon : System.Web.UI.Page
     {
+        //<%--  [3.Eliminar Pokemon]--%>
+        public bool ConfirmaEliminacion { get; set; }
         //private Pokemon auxPokemon = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //<% --  [4.Eliminar Pokemon]-- %>
+            ConfirmaEliminacion = false;
 
             //[1.Crear Pokemon]
             //no podemos agregar un id, es automatico.
             txtId.Enabled = false;
 
-
-           
 
             try
             {
@@ -37,10 +39,10 @@ namespace WebApp
                     ddlTipo.DataBind();
                     ddlTipo.Items.Insert(0, new ListItem("Seleccionar ", "0")); // no funca esto por ahora.
 
-                   ddlDebilidad.DataSource = listaE;
-                   ddlDebilidad.DataValueField = "Id";
-                   ddlDebilidad.DataTextField = "Descripcion";
-                   ddlDebilidad.DataBind();
+                    ddlDebilidad.DataSource = listaE;
+                    ddlDebilidad.DataValueField = "Id";
+                    ddlDebilidad.DataTextField = "Descripcion";
+                    ddlDebilidad.DataBind();
 
 
                 }
@@ -50,7 +52,7 @@ namespace WebApp
                 string id = Request.QueryString["Id"] != null ? Request.QueryString["Id"].ToString() : string.Empty;
 
                 //6.Modificar Objeto, debemos poner si isPOsboack porque  se vuelve a recargar el formulario,entonces las modificaciones no se ven reflejadas.
-                if (id != string.Empty && !IsPostBack) 
+                if (id != string.Empty && !IsPostBack)
                 {
 
                     NegocioPokemon negocio = new NegocioPokemon();
@@ -73,7 +75,7 @@ namespace WebApp
             catch (Exception ex)
             {
 
-                Session.Add ("error" ,ex);
+                Session.Add("error", ex);
                 throw;
             }
 
@@ -103,7 +105,7 @@ namespace WebApp
                 newPokemon.Debilidad.Id = int.Parse(ddlDebilidad.SelectedValue);
                 newPokemon.Descripcion = txtDescripcion.Text;
                 newPokemon.UrlImagen = txtUrlImagen.Text;
-                
+
 
 
                 //4.Modificar Objeto.
@@ -118,7 +120,7 @@ namespace WebApp
                     negocio.AgregarConSp(newPokemon);
 
                 }
-                
+
                 Response.Redirect("ListaPokemon.aspx", false);
             }
             catch (Exception ex)
@@ -136,6 +138,38 @@ namespace WebApp
         private void cargarImagen()
         {
             imgUrlImagen.ImageUrl = txtUrlImagen.Text;
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+             //<% --  [6.Eliminar Pokemon]-- %>
+
+            ConfirmaEliminacion = true;
+
+         
+        }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+             //<% --  [7.Eliminar Pokemon]-- %>
+            try
+            {
+                if (ckConfirmaEliminacion.Checked)
+                {
+                    NegocioPokemon negocio = new NegocioPokemon();
+                    Pokemon eliminarPokemon = new Pokemon();
+                    eliminarPokemon.Id = int.Parse(txtId.Text);
+                    negocio.EliminarConSp(eliminarPokemon);
+                    Response.Redirect("ListaPokemon.aspx", false);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("erorr", ex);
+                throw;
+            }
         }
     }
 }

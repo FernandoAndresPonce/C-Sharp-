@@ -122,7 +122,7 @@ namespace LogicaNegocio
             try
             {
                 datos.setearProcedimientoAlmacenado("storedModificar");
-             
+
                 datos.setearParametros("@Numero", updatePokemon.Numero);
                 datos.setearParametros("@Nombre", updatePokemon.Nombre);
                 datos.setearParametros("@Descripcion", updatePokemon.Descripcion);
@@ -132,6 +132,26 @@ namespace LogicaNegocio
                 datos.setearParametros("@Id", updatePokemon.Id);
 
                 datos.ejectuarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void EliminarConSp(Pokemon idPokemon)
+        {
+            try
+            {
+                datos.setearProcedimientoAlmacenado("storedEliminarPokemon");
+                datos.setearParametros("@Id", idPokemon.Id);
+                datos.ejectuarAccion();
+
             }
             catch (Exception ex)
             {
