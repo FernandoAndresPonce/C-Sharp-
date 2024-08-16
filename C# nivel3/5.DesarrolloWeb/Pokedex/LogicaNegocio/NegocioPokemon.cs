@@ -46,6 +46,8 @@ namespace LogicaNegocio
                     auxPokemon.Debilidad.Descripcion = (string)datos.Lector["Debilidad"];
                     auxPokemon.Debilidad.Id = (int)datos.Lector["IdTipo"];
 
+                    auxPokemon.Activo = bool.Parse(datos.Lector["Activo"].ToString());
+
                     listaPokemones.Add(auxPokemon);
                 }
 
@@ -74,7 +76,7 @@ namespace LogicaNegocio
             try
             {
 
-                datos.setearConsulta("Select P.Id, P.Numero, P.Nombre, P.Descripcion, P.UrlImagen, P.IdTipo, P.IdDebilidad, T.Descripcion Tipo, D.Descripcion Debilidad from POKEMONS P, ELEMENTOS T, ELEMENTOS D where P.IdTipo = T.Id And P.IdDebilidad = D.Id And P.Activo = 1 And P.Id = " + Id);
+                datos.setearConsulta("Select P.Id, P.Numero, P.Nombre, P.Descripcion, P.UrlImagen, P.IdTipo, P.IdDebilidad, T.Descripcion Tipo, D.Descripcion Debilidad, P.Activo from POKEMONS P, ELEMENTOS T, ELEMENTOS D where P.IdTipo = T.Id And P.IdDebilidad = D.Id And P.Id = " + Id);
                 datos.ejecutarLectura();
 
 
@@ -96,6 +98,8 @@ namespace LogicaNegocio
                     auxPokemon.Debilidad = new Elemento();
                     auxPokemon.Debilidad.Descripcion = (string)datos.Lector["Debilidad"];
                     auxPokemon.Debilidad.Id = (int)datos.Lector["IdTipo"];
+
+                    auxPokemon.Activo = bool.Parse(datos.Lector["Activo"].ToString());
 
 
                 }
@@ -183,6 +187,52 @@ namespace LogicaNegocio
                 //datos.setearParametros("@idEvolucion", null);
 
                 datos.ejectuarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        //public void ReactivarConSp(int v)
+        //{
+        //    try
+        //    {
+        //        datos.setearProcedimientoAlmacenado("");
+        //        datos.setearParametros();
+        //        datos.ejectuarAccion();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        datos.cerrarConexion();
+        //    }
+        //}
+
+        //[3.Inactivar ]
+        //[3.Reactivar Objeto]
+        public void InactivarConSp(int v, bool activo = false)
+        {
+            try
+            {
+
+
+                datos.setearProcedimientoAlmacenado("storedInactivarPokemon");
+                datos.setearParametros("@Id", v);
+                datos.setearParametros("@Activo", activo);
+                datos.ejectuarAccion();
+
+
             }
             catch (Exception ex)
             {

@@ -58,6 +58,9 @@ namespace WebApp
                     NegocioPokemon negocio = new NegocioPokemon();
                     Pokemon pokemonSeleccionado = negocio.filtroIdPokemon(id);
 
+                    //[5.Reactivar Objeto]
+                    Session.Add("PokemonSeleccionado", pokemonSeleccionado);
+
                     //3.Modificar Objeto.
                     txtId.Text = pokemonSeleccionado.Id.ToString();
                     txtNumero.Text = pokemonSeleccionado.Numero.ToString();
@@ -66,10 +69,17 @@ namespace WebApp
                     txtUrlImagen.Text = pokemonSeleccionado.UrlImagen;
                     ddlTipo.SelectedValue = pokemonSeleccionado.Tipo.Id.ToString();
                     ddlDebilidad.SelectedValue = pokemonSeleccionado.Debilidad.Id.ToString();
+                    
 
                     //4.Modificar Objeto, para que se carge la imagen, forzamos el evento.
                     //txtUrlImagen_TextChanged(sender, e); o de esta manera.
                     cargarImagen();
+
+                    //[2.Reactivar Objeto]
+
+                    if (!pokemonSeleccionado.Activo)
+                        btnInactivar.Text = "Reactivar";
+                   
                 }
             }
             catch (Exception ex)
@@ -142,16 +152,16 @@ namespace WebApp
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-             //<% --  [6.Eliminar Pokemon]-- %>
+            //<% --  [6.Eliminar Pokemon]-- %>
 
             ConfirmaEliminacion = true;
 
-         
+
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-             //<% --  [7.Eliminar Pokemon]-- %>
+            //<% --  [7.Eliminar Pokemon]-- %>
             try
             {
                 if (ckConfirmaEliminacion.Checked)
@@ -171,5 +181,18 @@ namespace WebApp
                 throw;
             }
         }
+
+        //[2.Inactivar ]
+        //[4.Reactivar Objeto]
+        protected void btnInactivar_Click(object sender, EventArgs e)
+        {
+            //[6.Reactivar Objeto]
+            NegocioPokemon negocio = new NegocioPokemon();
+            Pokemon seleccionado = (Pokemon)Session["PokemonSeleccionado"];
+            negocio.InactivarConSp(seleccionado.Id, !seleccionado.Activo);
+            Response.Redirect("ListaPokemon.aspx", false);
+        }
+
+      
     }
 }

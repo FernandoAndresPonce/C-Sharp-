@@ -17,7 +17,7 @@ namespace Dominio
         public string UrlImagen { get; set; }
         public Elemento Tipo { get; set; }
         public Elemento Debilidad { get; set; }
-        public int Activo { get; set; }
+        public bool Activo { get; set; }
 
         //<% --[6.dropdownlist Enlazado]-- %>
         public override string ToString()

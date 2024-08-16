@@ -18,6 +18,7 @@
                 <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
                 <asp:BoundField HeaderText="Debilidad" DataField="Debilidad.Descripcion" />
                 <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
+                <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
                 <asp:CommandField ShowSelectButton="true" HeaderText="Accion" SelectText="Modificar" /> 
             </Columns>
         </asp:GridView>

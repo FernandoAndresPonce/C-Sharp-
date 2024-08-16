@@ -55,6 +55,12 @@
                         <%--  [1.Eliminar Pokemon]--%>
                         <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger " OnClick="btnEliminar_Click" runat="server" />
                         </li>
+                        <li class="formularioPokemonButton">
+                       <%-- [1.Inactivar o Reactivar Pokemon]--%>
+                            <asp:Button Text="Inactivar" ID="btnInactivar" CssClass="btn btn-warning " OnClick="btnInactivar_Click" runat="server" />
+<%--                            <asp:Button Text="Reactivar" ID="btnReactivar" CssClass="btn btn-danger " OnClick="btnReactivar_Click" runat="server" />--%>
+
+                        </li>
                         <%--  [2.Eliminar Pokemon]--%>
                         <%--  [5.Eliminar Pokemon]--%>
 
@@ -62,7 +68,7 @@
                             { %>
                         <li>
                             <asp:CheckBox Text="Confirmar Eliminacion" ID="ckConfirmaEliminacion" runat="server" />
-                            <asp:Button Text="Confirmar" ID="btnConfirmar" CssClass="btn btn-outline-danger" OnClick ="btnConfirmar_Click" runat="server" />
+                            <asp:Button Text="Confirmar" ID="btnConfirmar" CssClass="btn btn-outline-danger" OnClick="btnConfirmar_Click" runat="server" />
                         </li>
                         <%}%>
                     </ContentTemplate>
