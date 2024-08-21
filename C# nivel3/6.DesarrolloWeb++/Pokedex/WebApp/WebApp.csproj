@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CCAD23CB-4F98-4B2B-AEBD-1EFEBF60A1F3}</ProjectGuid>
+    <ProjectGuid>{04E14B08-7DB4-433D-A74C-BB358DF74644}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication</RootNamespace>
-    <AssemblyName>WebApplication</AssemblyName>
+    <RootNamespace>WebApp</RootNamespace>
+    <AssemblyName>WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44398</IISExpressSSLPort>
+    <IISExpressSSLPort>44344</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -83,14 +83,14 @@
     <Content Include="Contents\bootstrap.min.css" />
     <Content Include="Contents\bootstrap.rtl.css" />
     <Content Include="Contents\bootstrap.rtl.min.css" />
+    <Content Include="Contents\stylesMIo.css\stylesmio.css" />
     <Content Include="Default.aspx" />
-    <Content Include="EnvioEmail.aspx" />
-    <Content Include="Error.aspx" />
+    <Content Include="DetallePokemon.aspx" />
+    <Content Include="DropDownListEnlazado.aspx" />
+    <Content Include="FormPokemon.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Login.aspx" />
-    <Content Include="Login2.aspx" />
-    <Content Include="Pagina1.aspx" />
-    <Content Include="Pagina2.aspx" />
+    <Content Include="ListaPokemon.aspx" />
+    <Content Include="Registrarse.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -107,59 +107,52 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EnvioEmail.aspx.cs">
-      <DependentUpon>EnvioEmail.aspx</DependentUpon>
+    <Compile Include="DetallePokemon.aspx.cs">
+      <DependentUpon>DetallePokemon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EnvioEmail.aspx.designer.cs">
-      <DependentUpon>EnvioEmail.aspx</DependentUpon>
+    <Compile Include="DetallePokemon.aspx.designer.cs">
+      <DependentUpon>DetallePokemon.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
+    <Compile Include="DropDownListEnlazado.aspx.cs">
+      <DependentUpon>DropDownListEnlazado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
+    <Compile Include="DropDownListEnlazado.aspx.designer.cs">
+      <DependentUpon>DropDownListEnlazado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPokemon.aspx.cs">
+      <DependentUpon>FormPokemon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPokemon.aspx.designer.cs">
+      <DependentUpon>FormPokemon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="ListaPokemon.aspx.cs">
+      <DependentUpon>ListaPokemon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="ListaPokemon.aspx.designer.cs">
+      <DependentUpon>ListaPokemon.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login2.aspx.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login2.aspx.designer.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MasterSite.Master.cs">
-      <DependentUpon>MasterSite.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterSite.Master.designer.cs">
-      <DependentUpon>MasterSite.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pagina1.aspx.cs">
-      <DependentUpon>Pagina1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pagina1.aspx.designer.cs">
-      <DependentUpon>Pagina1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pagina2.aspx.cs">
-      <DependentUpon>Pagina2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pagina2.aspx.designer.cs">
-      <DependentUpon>Pagina2.aspx</DependentUpon>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrarse.aspx.cs">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrarse.aspx.designer.cs">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contents\bootstrap-grid.css.map" />
@@ -178,7 +171,7 @@
     <Content Include="Contents\bootstrap.min.css.map" />
     <Content Include="Contents\bootstrap.rtl.css.map" />
     <Content Include="Contents\bootstrap.rtl.min.css.map" />
-    <Content Include="MasterSite.Master" />
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -198,16 +191,16 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dominio\dominio.csproj">
-      <Project>{05f519ad-42f2-4e2e-9ff1-62b5675d0e12}</Project>
-      <Name>dominio</Name>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{7dee8871-9fc9-4a0d-a328-46c4a54a4ff5}</Project>
+      <Name>Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NegocioLogica\NegocioLogica.csproj">
-      <Project>{2cd7ea27-9fe4-436a-a70c-efeed4e08d35}</Project>
-      <Name>NegocioLogica</Name>
+    <ProjectReference Include="..\LogicaNegocio\LogicaNegocio.csproj">
+      <Project>{d1f107cf-9601-4c6d-8a82-600a5a9adf6b}</Project>
+      <Name>LogicaNegocio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{e5d69d5a-9fe9-40c0-8c46-61e5f45f14ae}</Project>
+      <Project>{25908a3d-2a75-4e17-b08f-84c284812103}</Project>
       <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
@@ -224,9 +217,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57887</DevelopmentServerPort>
+          <DevelopmentServerPort>49971</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44398/</IISUrl>
+          <IISUrl>https://localhost:44344/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

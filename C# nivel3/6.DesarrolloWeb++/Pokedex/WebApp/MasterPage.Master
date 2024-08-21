@@ -1,15 +1,17 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterSite.master.cs" Inherits="WebApplication.MasterSite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WebApp.MasterPage" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Proyecto Web</title>
+    <title>Pokemon</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="Contents/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Contents/stylesMIo.css/stylesmio.css" rel="stylesheet" />
+
 </head>
 
 
@@ -31,10 +33,7 @@
                                 <a class="nav-link" href="ListaPokemon.aspx">Lista Pokemon</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Login.aspx">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="EnvioEmail.aspx">Envio Emails</a>
+                                <a class="nav-link" href="DropDownListEnlazado.aspx">DropDownList Enlazado</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -43,7 +42,6 @@
                     </div>
                 </div>
             </nav>
-
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
