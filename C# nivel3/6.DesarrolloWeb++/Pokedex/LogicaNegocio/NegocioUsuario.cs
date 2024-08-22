@@ -57,5 +57,35 @@ namespace LogicaNegocio
                 datos.cerrarConexion();
             }
         }
+
+        //<%--[3.Login]--%>
+        public bool Login(Usuario usuario)
+        {
+            try
+            {
+                datos.setearProcedimientoAlmacenado("storedConfirmarLogin");
+                datos.setearParametros("@email", usuario.Email);
+                datos.setearParametros("@password", usuario.Password);
+                datos.ejecutarLectura();
+                if(datos.Lector.Read())
+                {
+                    usuario.Id = (int)datos.Lector["id"];
+                    usuario.Admin = (bool)datos.Lector["admin"];
+                    return true;
+                }
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

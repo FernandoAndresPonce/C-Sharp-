@@ -24,6 +24,9 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                   <%-- <% --[7.Login]-- %>--%>
+                    <%if (usu != null && usu.Id != 0)
+                        { %>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -36,10 +39,18 @@
                                 <a class="nav-link" href="DropDownListEnlazado.aspx">DropDownList Enlazado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                <a class="nav-link ">Disabled</a>
                             </li>
+
                         </ul>
                     </div>
+                    <%} %>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <asp:Button class="btn btn-primary me-md-2" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" runat="server" />
+                    <asp:Button class="btn btn-light me-md-2 redondo" Text="Registrarse" ID="btnRegistrarse" OnClick="btnRegistrarse_Click" runat="server" />
+                    <asp:Button class="btn btn-dark me-md-2 redondo" Text="Mi Perfil" ID="btnPerfil" OnClick="btnPerfil_Click" runat="server" />
                 </div>
             </nav>
 
