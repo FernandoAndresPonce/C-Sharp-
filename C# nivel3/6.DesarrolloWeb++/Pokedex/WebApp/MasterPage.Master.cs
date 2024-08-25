@@ -22,7 +22,7 @@ namespace WebApp
             //<% --[5.Login]-- %> y esto lo repito en cada pantalla para validar, y no puedan ingresar
             //por la URL poniendo la redireccion para validar nuestra seguridad.
 
-            if (!(Page is Login || Page is Default || Page is Registrarse))
+            if (!(Page is Login || Page is Default || Page is Registrarse || Page is Error))
             {
 
                 if (!Seguridad.sessionActiva(Session["Usuario"]))
@@ -32,20 +32,25 @@ namespace WebApp
                 }
                 else
                 {   //<% --[7.Login]
-                    if(Page is ListaPokemon)
+                    if(Page is ListaPokemon || Page is FormPokemon)
                         if (!(Seguridad.esAdmin(Session["Usuario"])))
                         {
                             Session.Add("error", "Admin para ingresar aqui");
                             Response.Redirect("Error.aspx", false);
                         }
-                 
-
-                    
-
                 }
             }
 
+            //[6.Subir Imagen a Perfil]-- %> --%>
 
+            if (Seguridad.sessionActiva(Session["Usuario"]) && ((Usuario)Session["Usuario"]).ImagenPerfil != null)
+            {
+                imgAvatar.ImageUrl = "~/Images/" + ((Usuario)Session["Usuario"]).ImagenPerfil;
+            }
+            else
+            {
+                imgAvatar.ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_JlCFnIGX5omgjEjgV9F3sBRq14eTERK9w&s";
+            }
 
 
 
@@ -64,6 +69,12 @@ namespace WebApp
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
             Response.Redirect("MiPerfil.aspx", false);
+        }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx", false);
         }
     }
 }

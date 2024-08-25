@@ -37,7 +37,9 @@ namespace WebApp
                 usuario.Password = txtPassword.Text;
 
                 //<%-- [5.Registro Trainee - output SQL - MailTrap]--%>
-                int id = negocio.InsertarNuevo(usuario);
+                usuario.Id = negocio.InsertarNuevo(usuario);
+                //ver OJOOOOO
+                Session.Add("Usuario", usuario);
 
                 //<%-- [8.Registro Trainee - output SQL - MailTrap]--%
                 servicio.ArmarCorreo(usuario.Email, "Bienvenido Trainer", "Hola te damos la bienvenida a la App.");

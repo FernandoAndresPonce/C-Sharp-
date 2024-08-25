@@ -58,6 +58,31 @@ namespace LogicaNegocio
             }
         }
 
+        //<% --[3.Subir Imagen a Perfil]-- %>
+        public void ActualizarPerfil(Usuario actualizarUsuario)
+        {
+            try
+            {
+                datos.setearProcedimientoAlmacenado("storedActualizarImagenPrincipal");
+                datos.setearParametros("@imagenPerfil", actualizarUsuario.ImagenPerfil);
+                datos.setearParametros("@id", actualizarUsuario.Id);
+                datos.setearParametros("@nombre", actualizarUsuario.Nombre);
+                datos.setearParametros("@apellido", actualizarUsuario.Apellido);
+
+                datos.ejectuarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         //<%--[3.Login]--%>
         public bool Login(Usuario usuario)
         {
@@ -67,10 +92,25 @@ namespace LogicaNegocio
                 datos.setearParametros("@email", usuario.Email);
                 datos.setearParametros("@password", usuario.Password);
                 datos.ejecutarLectura();
-                if(datos.Lector.Read())
+                if (datos.Lector.Read())
                 {
                     usuario.Id = (int)datos.Lector["id"];
                     usuario.Admin = (bool)datos.Lector["admin"];
+                    if (!(datos.Lector["imagenPrincipal"] is DBNull))
+                    {
+                        usuario.ImagenPerfil = (string)datos.Lector["imagenPrincipal"];
+                    }
+
+                    if (!(datos.Lector["email"] is DBNull))
+                        usuario.Email = (string)datos.Lector["email"];
+                    if (!(datos.Lector["nombre"] is DBNull))
+                        usuario.Nombre = (string)datos.Lector["nombre"];
+                    if (!(datos.Lector["apellido"] is DBNull))
+                        usuario.Apellido = (string)datos.Lector["apellido"];
+
+
+
+
                     return true;
                 }
 
