@@ -23,7 +23,7 @@
             </li>
             <li class="formularioPokemon">
                 <label for="txtFechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                <asp:TextBox runat="server" ID="TxtFechaNacimiento" CssClass="form-control" TextMode="DateTime" />
+                <asp:TextBox runat="server" ID="TxtFechaNacimiento" CssClass="form-control" TextMode="Date" />
             </li>
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>

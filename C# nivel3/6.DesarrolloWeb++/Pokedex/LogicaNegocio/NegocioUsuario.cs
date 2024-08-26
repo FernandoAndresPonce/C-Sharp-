@@ -64,10 +64,16 @@ namespace LogicaNegocio
             try
             {
                 datos.setearProcedimientoAlmacenado("storedActualizarImagenPrincipal");
-                datos.setearParametros("@imagenPerfil", actualizarUsuario.ImagenPerfil);
+
+                //
+                // Unico paso - Enviar NULL a DB
+                //datos.setearParametros("@imagenPerfil", actualizarUsuario.ImagenPerfil != null ? actualizarUsuario.ImagenPerfil : (object)DBNull.Value);
+                datos.setearParametros("@imagenPerfil", (object) actualizarUsuario.ImagenPerfil ?? DBNull.Value);
+
                 datos.setearParametros("@id", actualizarUsuario.Id);
                 datos.setearParametros("@nombre", actualizarUsuario.Nombre);
                 datos.setearParametros("@apellido", actualizarUsuario.Apellido);
+                datos.setearParametros("@fechaNacimiento", actualizarUsuario.FechaNacimiento);
 
                 datos.ejectuarAccion();
 
@@ -97,16 +103,16 @@ namespace LogicaNegocio
                     usuario.Id = (int)datos.Lector["id"];
                     usuario.Admin = (bool)datos.Lector["admin"];
                     if (!(datos.Lector["imagenPrincipal"] is DBNull))
-                    {
                         usuario.ImagenPerfil = (string)datos.Lector["imagenPrincipal"];
-                    }
-
                     if (!(datos.Lector["email"] is DBNull))
                         usuario.Email = (string)datos.Lector["email"];
                     if (!(datos.Lector["nombre"] is DBNull))
                         usuario.Nombre = (string)datos.Lector["nombre"];
                     if (!(datos.Lector["apellido"] is DBNull))
                         usuario.Apellido = (string)datos.Lector["apellido"];
+                    if (!(datos.Lector["fechaNacimiento"] is DBNull))
+                        usuario.FechaNacimiento = DateTime.Parse(datos.Lector["fechaNacimiento"].ToString());
+
 
 
 

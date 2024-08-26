@@ -24,8 +24,9 @@ namespace WebApp
                         txtEmail.ReadOnly = true;
                         txtNombre.Text = user.Nombre;
                         txtApellido.Text = user.Apellido;
-                        if(!string.IsNullOrEmpty(user.ImagenPerfil))
-                            imgImagen.ImageUrl = "~/Images/"  + user.ImagenPerfil;
+                        TxtFechaNacimiento.Text = user.FechaNacimiento.ToString("yyyy-MM-dd");
+                        if (!string.IsNullOrEmpty(user.ImagenPerfil))
+                            imgImagen.ImageUrl = "~/Images/" + user.ImagenPerfil;
 
                     }
 
@@ -47,12 +48,17 @@ namespace WebApp
                 NegocioUsuario negocio = new NegocioUsuario();
                 //ESCRIBIR IMG
                 //esto me devulve la ruta fisica de webapp , este donde este.
-                string ruta = Server.MapPath("./Images/");
-                txtImagenPerfil.PostedFile.SaveAs(ruta + "Perfil - " + user.Id + ".jpg");
+                if (txtImagenPerfil.PostedFile.FileName != "")
+                {
+                    string ruta = Server.MapPath("./Images/");
+                    txtImagenPerfil.PostedFile.SaveAs(ruta + "Perfil-" + user.Id + ".jpg");
+                    user.ImagenPerfil = "Perfil-" + user.Id + ".jpg";
 
-                user.ImagenPerfil = "Perfil - " + user.Id + ".jpg";
+                }
+
                 user.Nombre = txtNombre.Text;
                 user.Apellido = txtApellido.Text;
+                user.FechaNacimiento = DateTime.Parse(TxtFechaNacimiento.Text);
 
 
                 //user.FechaNacimiento = DateTime.Parse(TxtFechaNacimiento.Text);
@@ -63,6 +69,8 @@ namespace WebApp
                 //[4.Subir Imagen a Perfil]-- %> --%>
                 Image img = (Image)Master.FindControl("imgAvatar");
                 img.ImageUrl = "~/Images/" + user.ImagenPerfil;
+
+                Response.Redirect("Default.aspx", false);
             }
             catch (Exception ex)
             {

@@ -19,6 +19,7 @@ namespace WebApp
 
             usu = (Usuario)Session["Usuario"];
 
+            imgAvatar.ImageUrl = "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=";
             //<% --[5.Login]-- %> y esto lo repito en cada pantalla para validar, y no puedan ingresar
             //por la URL poniendo la redireccion para validar nuestra seguridad.
 
@@ -32,7 +33,12 @@ namespace WebApp
                 }
                 else
                 {   //<% --[7.Login]
-                    if(Page is ListaPokemon || Page is FormPokemon)
+                    Usuario usuario = (Usuario)Session["Usuario"];
+                    if(!string.IsNullOrEmpty(usuario.ImagenPerfil))
+                    {
+                        imgAvatar.ImageUrl = "~/Images/" + usuario.ImagenPerfil;
+                    }
+                    if (Page is ListaPokemon || Page is FormPokemon)
                         if (!(Seguridad.esAdmin(Session["Usuario"])))
                         {
                             Session.Add("error", "Admin para ingresar aqui");
