@@ -1,0 +1,47 @@
+﻿.titulo {
+    text-align: center;
+    margin: 20px
+}
+
+.formularioPokemon{
+    margin: 20px 300px;
+}
+.button{
+    margin-right: 50px;
+    margin-left: 50px;
+
+}
+
+.formularioPokemonButton {
+    margin: 40px;
+    text-align:center;
+}
+
+.tituloListPokemon{
+    text-align: center;
+    margin: 20px;
+}
+
+ul{
+    list-style-type: none;
+}
+.tablaPokemon{
+    margin: 40px 100px 40px 40px;
+    text-align: center;
+}
+
+.imagenFormPokemon{
+    
+    width: 60%;
+}
+
+.formularioPokemonButtonImangen {
+    text-align: center;
+    width: 40%;
+    margin:auto;
+}
+
+.redondo{
+    border-radius: 100%;
+}
+
